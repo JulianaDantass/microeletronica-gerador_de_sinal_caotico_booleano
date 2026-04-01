@@ -1,0 +1,18 @@
+Circuito gerador de caos
+.include caos_roteado.spi
+
+* INTERF p s vdd vss
+
+Vdd 1 0 DC 1.80001V
+Vss 2 0 DC 0.0V
+Vp 3 0 PULSE(1.8 0 0 1n 1n 200n 400n)
+*Vp 3 0 DC 1.8V
+*Vp 3 0 DC 0.0V
+
+X1 3 4 1 2 caos_roteado
+
+.model tp pmos level=54
+.model tn nmos level=54
+
+.tran 0.04n 1000n UIC
+.end
